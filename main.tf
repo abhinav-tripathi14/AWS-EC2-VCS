@@ -6,7 +6,6 @@ terraform {
     name = "Create-AWS-EC2-VCS"
   }
 }
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
