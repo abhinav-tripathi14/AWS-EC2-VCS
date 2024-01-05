@@ -13,6 +13,15 @@ terraform {
     }
   }
 }
+
+locals {
+  get_nullresource_count = [ for i in { for k, v in data.tfe_variables.testvar.variables: k => v.value  if v.name == "number_of_instances" } : i ][0]
+}
+
+variable "get_nullresource_count" {
+  default = local.get_null_resource_count
+}
+
 resource "null_resource" "null-tfcws"{
 count = var.number_of_instances
 }
