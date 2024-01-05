@@ -13,24 +13,6 @@ terraform {
     }
   }
 }
-
-data "tfe_workspace" "test" {
-  name         = "Create-AWS-EC2-VCS"
-  organization = "Test-Abhinav"
-}
-
-data "tfe_variables" "testvar" {
-  workspace_id = data.tfe_workspace.test.id
-}
-locals {
-  get_null_resource_count = [ for i in { for k, v in data.tfe_variables.testvar.variables: k => v.value  if v.name == "number_of_instances" } : i ][4]
-}
-#variable "get_nullresource_count" {
-  #default = local.get_null_resource_count
-#}
-output "get_null_resource_count" {
-  value = local.get_null_resource_count
-}
 variable "number_of_instances"{
 default = ""
 }
