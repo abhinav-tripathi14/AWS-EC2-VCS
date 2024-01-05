@@ -32,12 +32,14 @@ output "get_null_resource_count" {
   value = local.get_null_resource_count
 }
 
+/*
 variable "number_of_instances"{
 default = "3"
 }
 resource "null_resource" "null-tfcws"{
 count = var.number_of_instances
 }
+*/
 provider "aws" {
   region = "us-west-1"
 }
