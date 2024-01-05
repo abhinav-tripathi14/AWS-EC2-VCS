@@ -31,9 +31,9 @@ locals {
 output "get_null_resource_count" {
   value = local.get_null_resource_count
 }
-#variable "number_of_instances"{
-#default = ""
-#}
+variable "number_of_instances"{
+default = ""
+}
 resource "null_resource" "null-tfcws"{
 count = var.number_of_instances
 }
