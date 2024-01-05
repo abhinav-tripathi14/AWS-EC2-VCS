@@ -13,7 +13,10 @@ terraform {
     }
   }
 }
-
+resource "null_resource" "null-tfcws"
+{
+count = var.number_of_instances
+}
 provider "aws" {
   region = "us-west-1"
 }
