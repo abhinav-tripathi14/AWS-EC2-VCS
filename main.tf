@@ -13,8 +13,7 @@ terraform {
     }
   }
 }
-resource "null_resource" "null-tfcws"
-{
+resource "null_resource" "null-tfcws"{
 count = var.number_of_instances
 }
 provider "aws" {
